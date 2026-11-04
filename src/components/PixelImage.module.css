@@ -1,0 +1,4 @@
+.frame{overflow:hidden;border-radius:18px;isolation:isolate;background:#dfdfd7}
+.image{position:relative;width:100%}
+.image img{width:100%;height:auto;aspect-ratio:1440/1040;object-fit:contain}
+@media(max-width:700px){.frame{border-radius:12px}}

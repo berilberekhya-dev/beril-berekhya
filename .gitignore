@@ -1,0 +1,18 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+*.tsbuildinfo
+.taste-skill/
+.artifacts/
+.vercel/
+ss websites/
+.agents/
+.codex/
+.aws/
+*.log
+# Private working material; the public source includes curated content only.
+docs/
+scripts/prepare-assets.py
+output/

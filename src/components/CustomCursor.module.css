@@ -1,0 +1,14 @@
+.cursor{position:fixed;inset:0;z-index:10000;pointer-events:none;visibility:hidden;contain:layout style;overflow:hidden}
+.cursor[data-visible="true"]{visibility:visible}
+.point,.follower{position:absolute;top:0;left:0;width:0;height:0;pointer-events:none;will-change:transform}
+.point>span{display:block;width:6px;height:6px;border-radius:50%;background:#f36b32;transform:translate(-50%,-50%);box-shadow:0 0 0 1px #11110f33;transition:opacity .16s,transform .18s}
+.halo{position:absolute;display:grid;place-items:center;width:29px;height:29px;border:1px solid #f5f4f0;border-radius:50%;color:#f5f4f0;box-shadow:0 0 0 1px #11110faa;transform:translate(-50%,-50%);transition:width .2s,height .2s,background-color .2s,border-color .2s}
+.halo svg{position:absolute;width:20px;height:20px;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scale(.6);transition:opacity .16s,transform .2s}
+.cursor[data-mode="action"] .halo,.cursor[data-mode="drag"] .halo{width:44px;height:44px;background:#11110feb}
+.cursor[data-mode="drag"] .halo{background:#f36b32;color:#11110f;border-color:#11110f}
+.cursor[data-mode="action"] .action,.cursor[data-mode="drag"] .drag{opacity:1;transform:scale(1)}
+.cursor[data-mode="action"] .point>span,.cursor[data-mode="drag"] .point>span{opacity:0;transform:translate(-50%,-50%) scale(.3)}
+.cursor[data-pressed="true"] .halo{width:34px;height:34px}
+.cursor[data-pressed="true"][data-mode="default"] .point>span{transform:translate(-50%,-50%) scale(1.5)}
+
+@media(prefers-reduced-motion:reduce),(forced-colors:active){.cursor{display:none}}

@@ -1,0 +1,18 @@
+import type { Metadata } from 'next';
+import { PolicyPage, AnalyticsStatusNote } from '@/components/privacy/PolicyPage';
+import { CookieSettingsButton } from '@/components/privacy/PrivacyProvider';
+import s from '@/components/privacy/PolicyPage.module.css';
+import { pageMetadata } from '@/lib/social-metadata';
+
+export const metadata: Metadata = pageMetadata({ title: 'Cookie policy', description: 'Cookies, local storage, optional analytics, and the privacy settings on Beril Berekhya’s portfolio.', path: '/cookie-policy' });
+
+export default function CookiePolicy() {
+  return <PolicyPage title="Cookie policy" intro="What this site stores in your browser, and the choices you control.">
+    <AnalyticsStatusNote/>
+    <section><h2>Cookies and similar storage</h2><p>Cookies are small values a website can store in your browser. Local storage is another browser mechanism that can remember a preference. This notice covers both. The portfolio’s content does not need advertising cookies or embedded social widgets.</p></section>
+    <section><h2>Storage used by this portfolio</h2><div className={s.tableWrap}><table><thead><tr><th>Storage</th><th>Purpose</th><th>Lifetime</th></tr></thead><tbody><tr><td><code>beril-consent-v1</code><br/>Local storage</td><td>Remembers whether you accepted or rejected optional analytics, together with the consent version and expiry. Created when you make that choice.</td><td>Up to 180 days; you can change it in Cookie settings or clear site data.</td></tr><tr><td><code>_ga</code> and <code>_ga_…</code><br/>First-party analytics cookies</td><td>Used by Google Analytics when production analytics is configured and you have opted in. They are not created by this integration before consent.</td><td>Configured for up to 180 days without extending their lifetime on each visit. They are removed when you withdraw consent.</td></tr></tbody></table></div><p>Hosting or security services may use additional strictly necessary mechanisms in a deployed environment. The production inventory should be updated if those are introduced; this notice does not describe optional tools that have not been installed.</p></section>
+    <section><h2>Your choices</h2><p>Where optional analytics is available, you can accept analytics, reject optional analytics, or open Settings. Neither choice prevents you from reading the portfolio or contacting me. If analytics is not configured on the current version, settings explains that no optional Google Analytics tracking is active.</p><p>Saved choices expire after 180 days or when a new consent version is required. You can also clear website data in your browser. Some browser settings block preference storage; in that case, you may be asked again on a later visit.</p><CookieSettingsButton className={s.settingsButton}/></section>
+    <section><h2>How analytics consent works</h2><p>The integration uses basic consent mode: the Google tag is blocked until you opt in. No denied-consent or cookieless analytics pings are intentionally sent before that choice. Advertising consent remains denied.</p><p>When you turn analytics off after previously allowing it, the site disables collection, clears its analytics cookies, and refreshes. This applies to future collection; it does not automatically delete data Google has already received. See <a href="https://support.google.com/analytics/answer/10000067?hl=en" target="_blank" rel="noreferrer">Google’s explanation of consent mode</a>.</p></section>
+    <section><h2>Contact</h2><p>For a question about these settings, email <a href="mailto:berilberekhya@gmail.com">berilberekhya@gmail.com</a>.</p></section>
+  </PolicyPage>;
+}

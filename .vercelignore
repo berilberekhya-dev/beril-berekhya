@@ -1,0 +1,21 @@
+# Only application source and approved public assets belong in the release.
+ss websites/
+docs/
+scripts/
+tests/
+.artifacts/
+.next/
+node_modules/
+.git/
+.vercel/
+.agents/
+.codex/
+.aws/
+.taste-skill/
+.env*
+*.tsbuildinfo
+*.log
+out/
+output/
+README.md
+AGENTS.md
